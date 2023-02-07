@@ -1,7 +1,7 @@
 // 1. Solicita al usuario tres números enteros e indícale cuál es el menor.
-var n = parseInc(prompt("Inserta un número entero: "));
-var n1 = parseInc(prompt("Inserta un número entero: "));
-var n2 = parseInc(prompt("Inserta un número entero: "));
+var n = parseInt(prompt("Inserta un número entero: "));
+var n1 = parseInt(prompt("Inserta un número entero: "));
+var n2 = parseInt(prompt("Inserta un número entero: "));
 
 if (n < n1 && n < n2) {
     alert(n + " Es el más pequeño");
@@ -17,7 +17,6 @@ else
 // añadir si el usuario repitiera el mismo número, indicar que lo repite
 
 // con un for y un array hacer una sola línea de promt
-
 
 
 
