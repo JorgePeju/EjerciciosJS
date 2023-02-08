@@ -20,5 +20,5 @@ for (k = 0; k < n; k++) {
 
 console.log(palabras)
 
-console.log(palabras[i], palabras[k + 2]);
+
 

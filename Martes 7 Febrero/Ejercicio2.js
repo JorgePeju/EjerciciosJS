@@ -10,8 +10,8 @@ function entero() {
 
 
     while (condition) {
-        for (let i = 0; i < n.length; i++) {
-           
+        for (i = 0; i < n.length; i++) {
+
         }
     }
     console.log(n.length);
@@ -24,19 +24,19 @@ function entero() {
 
 //2. Una función que muestre al usuario una secuencia de * (se debe construir la cadena de uno en uno), la cantidad de * será solicitada al usuario
 function secuencia1() {
-var rep1 = 4
-var asterisco = "*"
-var sumar = "+"
-var guion = "_"
-var resultado = ""
-// var signos = "*+_" resultado + signos
-do { (resultado = resultado + asterisco);
-     (resultado = resultado + sumar);
-     (resultado = resultado + guion);
-    rep1--
-} while (rep1 > 0);
-
-console.log(resultado)
+    var rep1 = 4
+    var asterisco = "*"
+    var sumar = "+"
+    var guion = "_"
+    var resultado1 = ""
+    // var signos = "*+_" resultado + signos
+    do {
+        (resultado1 = resultado1 + asterisco);
+        (resultado1 = resultado1 + sumar);
+        (resultado1 = resultado1 + guion);
+        rep1--
+    } while (rep1 > 0);
+    console.log(resultado1)
 }
 
 
@@ -47,23 +47,27 @@ console.log(resultado)
 
 // var asterisco = "*"
 // var resultado = ""
+
 function secuencia2() {
-var rep2 = 5
+    var rep2 = 5
+    var resultado2 = ""
+    var asterisco = "*"
 
+    do {
+        (resultado2 = resultado2 + asterisco);
+        rep2--
+        console.log(resultado2);
 
-do { (resultado= resultado + asterisco);
-    rep2--
-    console.log(resultado);
-    
-    // *
-    // **
-    // ***       
-    // rep = rep -1
-    // resultado += asterisco
-} while (rep2 > 0);
-
-console.log(resultado)
+        // *
+        // **
+        // ***       
+        // rep = rep -1
+        // resultado += asterisco
+    } while (rep2 > 0);
+    console.log(resultado2)
 }
+
+
 //4 .Una función que devuelva la diferencia en días entre dos fechas del mismo año (sólo tenemos en cuenta dia y mes)
 
 // 22-31 = 9
@@ -72,4 +76,4 @@ console.log(resultado)
 // junio = 16 días
 
 let dias = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
- console.log(dias.length)
+console.log(dias.length)
