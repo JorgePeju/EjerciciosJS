@@ -71,22 +71,15 @@ function secuencia2() {
 
 //4 .Una función que devuelva la diferencia en días entre dos fechas del mismo año (sólo tenemos en cuenta dia y mes)
 /*
-
 Partimos de la base que el año no es bisiesto
-
  22-31 = 9
  abril = 30 días
  mayo = 31 días
  junio = 16 días
-
  let dias = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 console.log(dias.length)
 let dias = [31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
-
-
 los números que te den por prompt
-
 dia1 - dia2 = / si sale negativo multiplicar por -1
 mes1 - mes2 = / si sale negativo multiplicar por -1
-
 */
