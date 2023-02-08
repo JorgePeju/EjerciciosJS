@@ -3,20 +3,10 @@
 
 
 function entero() {
-    var input = prompt("Inserta un número entero: ")
-    var n = parseInt(input);
-
-    console.log(input)
+    var n = parseInt(prompt("Inserta el primer número:"));
 
 
-    while (condition) {
-        for (i = 0; i < n.length; i++) {
-
-        }
-    }
-    console.log(n.length);
-    console.log(n);
-
+    console.log()
 }
 
 // alert("Hay un total de " + cont + " cifras")
@@ -36,7 +26,8 @@ function secuencia1() {
         (resultado1 = resultado1 + guion);
         rep1--
     } while (rep1 > 0);
-    console.log(resultado1)
+    console.log(resultado1);
+    return alert(resultado1)
 }
 
 
@@ -65,6 +56,7 @@ function secuencia2() {
         // resultado += asterisco
     } while (rep2 > 0);
     console.log(resultado2)
+    return alert(resultado2)
 }
 
 
@@ -84,5 +76,8 @@ let dias = [31, 59, 90, 120, 151, 181, 212, 243, 273, 304, 334, 365];
 
 
 los números que te den por prompt
+
+dia1 - dia2 = / si sale negativo multiplicar por -1
+mes1 - mes2 = / si sale negativo multiplicar por -1
 
 */
