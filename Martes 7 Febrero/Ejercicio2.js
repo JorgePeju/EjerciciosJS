@@ -11,7 +11,7 @@ function entero() {
         numero = numero /10;
     }
 
-    alert("Hay un total de " + contador + " cifras")
+    return alert("Hay un total de " + contador + " cifras")
 }
 
 
@@ -29,10 +29,14 @@ function secuencia1() {
         (resultado1 = resultado1 + asterisco);
         (resultado1 = resultado1 + sumar);
         (resultado1 = resultado1 + guion);
+        console.log(resultado1)
+        //*+_
+        //*+_*+_
+        //*+_*+_*+_
         rep1--
     } while (rep1 > 0);
-    console.log(resultado1);
-    return alert(resultado1)
+
+    return alert(resultado1);
 }
 
 
