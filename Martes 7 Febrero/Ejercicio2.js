@@ -3,13 +3,18 @@
 
 
 function entero() {
-    var n = parseInt(prompt("Inserta el primer número:"));
+    var numero = parseInt(prompt("Inserta el primer número:"));
+    var contador = 0 ;
 
+    while (numero >= 1) {
+        contador = contador + 1;
+        numero = numero /10;
+    }
 
-    console.log()
+    alert("Hay un total de " + contador + " cifras")
 }
 
-// alert("Hay un total de " + cont + " cifras")
+
 
 
 //2. Una función que muestre al usuario una secuencia de * (se debe construir la cadena de uno en uno), la cantidad de * será solicitada al usuario
