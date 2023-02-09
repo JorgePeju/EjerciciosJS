@@ -1,10 +1,9 @@
 let num = prompt("Indica un número:");
-let cont = [];
-const asterisco = "*"
+var asterisco = ""
 
 for (let i = 0; i < num; i++) {
-    cont[i] = asterisco;
-    console.log(cont);
+    asterisco += "*";
+    console.log(asterisco);
 }
 
-alert(cont)
+alert(asterisco)
