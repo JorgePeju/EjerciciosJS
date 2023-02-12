@@ -1,9 +1,8 @@
-let num = prompt("Indica un número:");
-var asterisco = ""
-
-for (let i = 0; i < num; i++) {
-    asterisco += "*";
-    console.log(asterisco);
-}
-
-alert(asterisco)
+var parrafos;
+function ejecutar() {
+    parrafos = document.getElementsByTagName("p");
+    for (let i = 0; i < parrafos.length; i++) {
+        let parrafo = parrafos[i].innerHTML;
+        alert(parrafo);
+    }
+} 
