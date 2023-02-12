@@ -22,23 +22,24 @@ function penultimo() {
 
 
 function enlacesprueba() {
-    var enlaces = document.getElementsByName("a.http://prueba");
+    var enlaces = document.getElementsByTagName("a");
     var contador = 0;
     for (i = 0; i < enlaces.length; i++) {
-        contador += 1;
-        console.log(contador);
+        if (enlaces[i].href === "http://prueba") {
+            contador += 1;
+        }
     }
     alert(contador)
 } 
 
 // 4. Número de enlaces del tercer párrafo
 function enlacestercer() {
-    var enlaces = document.getElementsByTagName("p");
+    var parrafos = document.getElementsByTagName("p");
+    var terparrafo = parrafos [2];
+    var enlaces = terparrafo.getElementsByTagName("a");
     var contador = 0;
     for (i = 0; i < enlaces.length; i++) {
-       if (enlaces[3]) {
-         
-       }
+        contador++
     }
     alert(contador)
 }
