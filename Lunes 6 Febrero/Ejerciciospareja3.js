@@ -24,3 +24,16 @@ if (typeof (total) == "number") {
     alert(total)
 }
 
+
+
+//// otra solución 
+
+var n1 = parseFloat(prompt('Inserta un número con decimales'));
+var n2 = parseFloat(prompt('Inserta otro número con decimales'));
+var op = prompt('Si quieres sumar escribe un +, si no un -');
+
+if(op == '+'){
+  alert(n1 +'+' +n2 +'='+(n1+n2));
+}else{
+  alert(n1 +'-' +n2 +'='+(n1-n2));
+}

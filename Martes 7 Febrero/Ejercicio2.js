@@ -35,10 +35,6 @@ function secuenciaast() {
 
 
 
-
-
-
-
 // 3. secuencia signos
 function secuencia1() {
     var rep1 = 4
@@ -87,6 +83,21 @@ function secuencia2() {
     } while (rep2 > 0);
     console.log(resultado2)
     return alert(resultado2)
+}
+
+// otro resultado
+
+//El parámetro indica la cantidad de líneas del triángulo
+function ejercicio_2_4(lineas){ 
+    var mostrar = "";
+    for (let i = 0; i < lineas; i++) {
+        for (let j = 0; j <= i; j++) {
+            mostrar = mostrar + '*';
+        }
+        mostrar = mostrar + '\n'; //\n es el salto de línea
+        
+    }
+    alert(mostrar);
 }
 
 
@@ -162,7 +173,7 @@ if (mes1 == mes2) {
     if (esde30(mes1)) {
         diferencia += (30 - día1)
         else {
-            diferencia += (31 - día1)
+        diferencia += (31 - día1)
         }
     }
 }

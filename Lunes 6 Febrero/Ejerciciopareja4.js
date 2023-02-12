@@ -11,3 +11,20 @@ do {
     attempts--
 } while ((inputuser != USER ||  inputpass != PASS) && attempts > 0); 
 
+// otra solución 
+
+const userC = "admin";
+const passC = "admin";
+var user, pass;
+var intentos = 3;
+do{
+  user =  prompt('Usuario');
+  pass =  prompt('Contraseña');
+  intentos--;
+}while((user!=userC || pass!=passC) && intentos>0);
+
+if(user==userC && pass==passC){
+  alert('Bienvenid@');
+}else{
+  alert('Intentos agotados');
+}

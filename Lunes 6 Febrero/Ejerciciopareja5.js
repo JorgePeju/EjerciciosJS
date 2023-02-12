@@ -20,3 +20,22 @@ else if (c === pass2) {
 else {
     alert("Te has equivocado de letra")
 }
+
+
+// Otra solución (switch)
+
+var letra =  prompt('Inserta una letra').toLocaleLowerCase()[0];
+
+switch(letra){
+  case 'a':
+    alert(7);
+    break;
+  case 'b':
+    alert(9);
+    break;
+  case 'c':
+    alert(101);
+    break;
+  default:
+    alert('Te has equivocado de letra');
+}
