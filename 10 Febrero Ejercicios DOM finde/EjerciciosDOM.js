@@ -28,8 +28,7 @@ function enlacesprueba() {
         if (enlaces[i].href === "http://prueba") {
             contador += 1;
         }
-    }
-    alert(contador)
+    }  console.log(contador)
 } 
 
 // 4. Número de enlaces del tercer párrafo
