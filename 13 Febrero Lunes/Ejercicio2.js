@@ -3,35 +3,99 @@
 // 2º Cuantos son negativos
 // 3º Cuantos son pares
 
-function numeros1() {
-    const cantidadnum = 10;
-    let num = [];
-    let positivos = "";
-    let negativos = "";
-    let pares = "";
-    let ceros = "";
+// function numeros1() {
+//     const cantidadnum = 10;
+//     let num = [];
+//     let positivos = "";
+//     let negativos = "";
+//     let pares = "";
 
-    function pedirnum() {
-        for (let i = 0; i < cantidadnum; i++) {
-            num[i] = prompt(`Introduce el número ${i + 1}:`);
+//     function pedirnum() {
+//         for (let i = 0; i < cantidadnum; i++) {
+//             num[i] = prompt(`Introduce el número ${i + 1}:`);
+//         }
+//         return num;
+//     }
+
+//     function () {
+//         if (num > 0) {
+//             positivos += 1
+//         } else if (num < 0) {
+//             negativos += 1
+//         } else if (num % 2) {
+//             pares += 1
+//         } 
+//     }
+// }
+
+        const positivos= document.getElementById('positivos')
+        const negativos= document.getElementById('negativos')
+        const pares= document.getElementById('pares')
+        let notas = [];
+        let contpos = 0;
+        let contneg = 0;
+        let contpar = 0;
+        let totalNums = 10;
+        function solicitarNumeros() { //
+            for (let i = 0; i <= totalNums; i++) {
+                let nota = parseInt(prompt(`Escribe el número ${i + 1}:`));
+                notas.push(validar(nota))
+            }
+        };
+        function validar(valor = 'g') {
+            while (isNaN(valor)) {
+                valor = parseInt(prompt(`Número no válido, vuelve a escribir el número`));
+            }
+            operar(valor)
+            return valor
         }
-        return num;
-    }
-
-    function () {
-        if (num > 0) {
-            positivos += 1
-        } else if (num < 0) {
-            negativos += 1
-        } else if (num % 2) {
-            pares += 1
-        } else if (num === 0) {
-            ceros += 1
+        // function operar() {
+        //     for (let i = 0; i <totalNums; i++) {
+        //         if (notas[i] % 2 == 0) {
+        //             contpar++;
+        //         }
+        //         if (notas[i] > 0) {
+        //             contpos++;
+        //         } else if (notas[i] < 0) {
+        //             contneg++;
+        //         }
+        //     }
+        // }
+        // function operar() {
+        //     let i=0
+        //     while(i<notas.length){
+        //         if (notas[i] % 2 == 0) {
+        //             contpar++;
+        //         }
+        //         if (notas[i] > 0) {
+        //             contpos++;
+        //         } else if (notas[i] < 0) {
+        //             contneg++;
+        //         }
+        //         i++
+        //     }
+        // }
+        function operar(valor) {
+            if (valor % 2 == 0) {
+                contpar++;
+            }
+            if (valor > 0) {
+                contpos++;
+            } else if (valor < 0) {
+                contneg++;
+            }
         }
-    }
-}
+        function escribir() {
+            positivos.innerText = contpos + ' número/s positivo/s';
+            negativos.innerText = contneg + ' número/s negativo/s';
+            pares.innerText = contpar + ' número/s par/es'
+        };
+        function ejer1() {
+            solicitarNumeros()
+            escribir()
+        }
 
-
+// meter en un array cada uno
 
 
 //2. Se solicitan 10 números enteros comprendidos entre 1 y 500, estos números se almacenarán en un array.
@@ -39,36 +103,71 @@ function numeros1() {
      //2º Almacenar en otro array los números comprendidos entre el 1 y 250
      //3º Almacenar en otro array los números comprendidos entre el 251 y 500
 
-     function numeros2() {
-        const cantidadnum = 10;
-        let num = [];
-        let mitad1 = [];
-        let mitad2 = [];
-        let nosuma = [];
+    //  function numeros2() {
+    //     const cantidadnum = 10;
+    //     let num = [];
+    //     let mitad1 = [];
+    //     let mitad2 = [];
+    //     let nosuma = [];
 
-        function pedirnum1() {
-            for (let i = 0; i < cantidadnum; i++) {
-                num[i] = prompt(`Introduce el número ${i + 1}:`);
-            }
-            return num;
-        }
+    //     function pedirnum1() {
+    //         for (let i = 0; i < cantidadnum; i++) {
+    //             num[i] = prompt(`Introduce el número ${i + 1}:`);
+    //         }
+    //         return num;
+    //     }
 
-        function () {
-            if (num > 0 && num <= 250) {
-                mitad1
-            } else if (num > 251 && num <= 500) {
-                mitad2
-            } else if (num <= 0 && num > 500) {
-                nosuma
+    //     function () {
+    //         if (num > 0 && num <= 250) {
+    //             mitad1
+    //         } else if (num > 251 && num <= 500) {
+    //             mitad2
+    //         } else if (num <= 0 && num > 500) {
+    //             nosuma
+    //         } else {
+    //             cositas
+    //         }
+
+    //         }
+    //     }
+
+
+
+// Esther 
+
+let nums = [];
+let num250 = [];
+let num500 = [];
+function solicitarNum() {
+    while (nums.length < 10) {
+        let n = parseFloat(prompt("introduce diez números entre el 1 y el 500"));
+        if (n < 0) {
+            alert("el numero es menor que 1, introduce otro entre el 1 y el 500");
+        } else {
+            if (n > 500) {
+                alert("el numero es mayor que 500, introduce otro entre el 1 y el 500");
             } else {
-                cositas
-            }
-
+                if (n > 1 && n <= 500) {
+                    console.log(n + "cumple la condicion");
+                    nums.push(n);
+                    console.log(nums);
+                }else{
+                    alert("el valor introducido no es valido");
+                }
             }
         }
-
-
-
-
-
     }
+}
+function organizarNum() {
+    for (let i = 0; i < nums.length; i++) {
+        let n = nums[i];
+        if (n < 250) {
+            num250.push(n);
+        } else {
+            num500.push(n);
+        }
+    }
+alert("numeros introducidos por encima de 250 : "+num250+"\n numeros introducidos entre 250 y 500 : "+num500);
+}
+solicitarNum();
+organizarNum();
