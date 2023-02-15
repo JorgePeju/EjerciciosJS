@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+       <style>
+
+        #caja{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        
+        .borde {
+            border: 3px solid black;
+        }
+        
+        </style>
+
+</head>
+
+
+<body>
+   
+
+    <ul id="cosa">
+
+    </ul>
+   
+   <div id="caja"></div>
+
+   <script>
+       
+    const caja=document.getElementById("caja")
+
+    caja.addEventListener("click",(ev)=>(
+    mostrarMensaje()));
+    // function mostrarMensaje() {
+
+    // console.log("este es el mensaje")
+    // }
+
+    const mostrarMensaje=()=>(console.log(mostrarMensaje));
+
+
+    //
+
+    document.addEventListener('DOMContentLoaded',()=>{
+    const caja=document.getElementById('caja')
+    // const divs=document.getElementsByTagName('div')
+    const divs=document.querySelectorAll('#caja > div')
+    // console.log(divs)
+   /*  divs.forEach((item)=>{
+        item.addEventListener('click',(ev)=>{
+            console.log(ev.target)
+        })
+    }) */
+    document.addEventListener('click',(ev)=>{
+        if(ev.target.classList.contains('rojo')){
+            console.log(ev.target)
+            const texto=ev.target.textContent
+            console.log(texto)
+        }
+    })
+    const array=[1,2,3,4,5];
+    array.forEach((item)=>{
+        let cajita=document.createElement('DIV');
+        cajita.textContent=item
+        caja.append(cajita)
+    })
+    }
+    </script>
+</body>
+</html>
