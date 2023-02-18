@@ -10,31 +10,26 @@ let mediaMayor;
 let alumnosMedia = [];
 
 function pedirDatosAlumnos() {
-  let numAlumnos = parseInt(prompt("Introduce el número de alumnos (al menos 1):"));
+  let numAlumnos = parseInt(prompt("Introduzca el número de alumnos:"));
+  let arrayAlumnos = [];
 
   while (isNaN(numAlumnos) || numAlumnos < 1) {
-    numAlumnos = parseInt(prompt("Introduce un número válido de alumnos (al menos 1):"));
+    numAlumnos = parseInt(prompt("Introduzca de nuevo un número de alumnos válidos:"));
   }
 
   for (let i = 0; i < numAlumnos; i++) {
-    let nombre = prompt(`Introduce el nombre del alumno ${i + 1}:`);
-    let nota1 = parseFloat(prompt(`Introduce la primera nota de ${nombre} ${i + 1}:`));
-    let nota2 = parseFloat(prompt(`Introduce la segunda nota de ${nombre} ${i + 1}:`));
-
+    let nombre = prompt(`Introduzca el nombre del alumno ${i + 1}:`);
+    let nota1 = parseFloat(prompt(`Introduzca la primera nota de ${nombre} ${i + 1}:`));
+    while (isNaN(nota1) || nota1 < 0 || nota1 > 10) {
+      nota1 = parseFloat(prompt(`Introduzca una nota entre 0 y 10 para la primera nota de ${nombre} ${i + 1}:`));
+    }
+    let nota2 = parseFloat(prompt(`Introduzca la segunda nota de ${nombre} ${i + 1}:`));
+    while (isNaN(nota2) || nota2 < 0 || nota2 > 10) {
+      nota2 = parseFloat(prompt(`Introduzca una nota entre 0 y 10 para la segunda nota de ${nombre} ${i + 1}:`));
+    }
     arrayAlumnos.push({ nombre, nota1, nota2 });
   }
 
-  return alumnos;
+  return arrayAlumnos;
 }
 
-function validarDatosAlumnos(alumnos) {
-  for (let i = 0; i < alumnos.length; i++) {
-    let alumno = alumnos[i];
-
-    if (!alumno.nombre || alumno.nota1 < 0 || alumno.nota1 > 10 || alumno.nota2 < 0 || alumno.nota2 > 10) {
-      return false;
-    }
-  }
-
-  return true;
-}
