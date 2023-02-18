@@ -43,15 +43,48 @@ function pedirDatosAlumnos() {
 function calcularMedias(arrayAlumnos) {
 
   for (let i = 0; i < arrayAlumnos.length; i++) {
+    // creo una variable temporal para definir mejor la posicion del alumno en el bucle
     let posicion = arrayAlumnos[i];
     console.log(posicion);
+
     let mediaNota1 = posicion.nota1 / 2;
     console.log(posicion.nota1);
+
     let mediaNota2 = posicion.nota2 / 2;
-    let mediaTotal = (mediaNota1 + mediaNota2) / 2;
-    alumnosMedia.push({ nombre: posicion.nombre, mediaNota1, mediaNota2, mediaTotal });
+    let mediaAlumno = (mediaNota1 + mediaNota2) / 2;
+
+    // pusheamos las notas media a un array independiente
+    alumnosMedia.push({ nombre: posicion.nombre, mediaNota1, mediaNota2, mediaAlumno});
   }
   console.log(alumnosMedia)
   return alumnosMedia;
 }
 
+
+function filtrarAlumno(alumnosMedia) {
+
+
+  for (let i = 0; i < alumnosMedia.length; i++) {
+    let posicion = alumnosMedia[i];
+    let mediaAlta = 0;
+    if (posicion.mediaAlumno> mediaAlta) {
+      mediaAlta = posicion.mediaTotal;
+    } //mediaALta es ahora el mayor número dentro del array alumnosMedia
+  } 
+ 
+  // bucle para buscar el nombre del alumno al que equivale su media más alta
+  for (let i = 0; i < alumnosMedia.length; i++) {
+     
+    if (alumnosMedia[i] === mediaAlta) {
+      mediaMayor = mediaAlta;
+    }
+  }
+
+ return mediaAlta;
+}
+
+function mostrarMensaje() {
+  
+
+  
+}
