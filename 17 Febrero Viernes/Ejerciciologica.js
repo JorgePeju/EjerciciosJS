@@ -31,60 +31,64 @@ function pedirDatosAlumnos() {
       nota2 = parseFloat(prompt(`Introduzca una nota entre 0 y 10 para la segunda nota de ${nombre} ${i + 1}:`));
     }
 
-    console.log(arrayAlumnos)
+   
     arrayAlumnos.push({ nombre, nota1, nota2 });
-  }
+  } console.log(arrayAlumnos)
 
-  return arrayAlumnos;
 
 }
 
 
-function calcularMedias(arrayAlumnos) {
+function calcularMedias() {
 
   for (let i = 0; i < arrayAlumnos.length; i++) {
     // creo una variable temporal para definir mejor la posicion del alumno en el bucle
     let posicion = arrayAlumnos[i];
     console.log(posicion);
 
-    let mediaNota1 = posicion.nota1 / 2;
+    let mediaNota1 = posicion.nota1;
     console.log(posicion.nota1);
 
-    let mediaNota2 = posicion.nota2 / 2;
+    let mediaNota2 = posicion.nota2;
     let mediaAlumno = (mediaNota1 + mediaNota2) / 2;
 
     // pusheamos las notas media a un array independiente
     alumnosMedia.push({ nombre: posicion.nombre, mediaNota1, mediaNota2, mediaAlumno});
   }
   console.log(alumnosMedia)
-  return alumnosMedia;
 }
 
 
-function filtrarAlumno(alumnosMedia) {
+function filtrarAlumno() {
 
+  let mediaAlta = 0;
 
   for (let i = 0; i < alumnosMedia.length; i++) {
     let posicion = alumnosMedia[i];
-    let mediaAlta = 0;
     if (posicion.mediaAlumno> mediaAlta) {
-      mediaAlta = posicion.mediaTotal;
+      mediaAlta = posicion.mediaAlumno;
     } //mediaALta es ahora el mayor número dentro del array alumnosMedia
   } 
  
   // bucle para buscar el nombre del alumno al que equivale su media más alta
   for (let i = 0; i < alumnosMedia.length; i++) {
      
-    if (alumnosMedia[i] === mediaAlta) {
+    if (alumnosMedia[i].mediaAlumno === mediaAlta) {
       mediaMayor = mediaAlta;
     }
   }
 
- return mediaAlta;
+ return mediaMayor;
 }
 
 function mostrarMensaje() {
   
+pedirDatosAlumnos();
+calcularMedias();
+alert(filtrarAlumno());
 
+//alert(mediaMayor);
   
 }
+
+mostrarMensaje();
