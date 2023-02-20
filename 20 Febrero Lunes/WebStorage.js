@@ -45,14 +45,20 @@ document.addEventListener('click',(ev)=>{
 
         if(ev.target.matches('.add')){
             const id=ev.target.parentElement.id
-
             const producto=arrayCompra.find((item)=>item.id==id)
             arrayProductos.push(producto)
-
-            localStorage.setItem('productos',JSON.stringify(arrayProductos))
-            pintarEnCesta()
+        }else if(ev.target.matches('.del')){
+            const id=ev.target.parentElement.id
+            const producto1=arrayCompra.find((item)=>item.id==id)
+            arrayProductos.pop(producto1)
+        } else if(ev.target.matches('.vaciar')){
+            arrayProductos.length = 0;
         }
+
+        pintarEnCesta()
+        
 })
+
 
 // FUNCIONES
 
@@ -66,24 +72,28 @@ const pintarEnCesta= ()=>{
     compra.innerHTML=''
 
     arrayProductos.forEach(({id,nombre})=>{
-        compra.innerHTML+= `<li id=${id}>${nombre} <button class='add'>Borrar</button> </li>`
+        compra.innerHTML+= `<li id=${id}>${nombre} <button class='del'>Borrar</button> </li>`
     })
-
+    if (arrayProductos.length > 0) {
+        compra.innerHTML += `<li><button class='vaciar'>Vaciar Cesta</button></li>`;
+    }
 };
 
    
  const eliminarDelLocal =(id)=>{
-    const nuevoArray = arrayCompra.filter((item)=>item.id!=id)
+  //  const nuevoArray = arrayCompra.filter({id,nombre}=>item.id!=id)
 
     // este nuevo array va al local storage
 
  }
-
+const addLocal= ()=>{
+    localStorage.setItem('productos',JSON.stringify(arrayProductos))
+}
  
 document.addEventListener("DOMContentLoaded", () => {
 
     pintarEnLista()
-   // pintarEnCesta()
+    addLocal
 
     
 });
