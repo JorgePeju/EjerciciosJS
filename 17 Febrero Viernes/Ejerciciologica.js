@@ -6,8 +6,9 @@
 
 const arrayAlumnos = []; // un array de objetos que tendrá el nombre la nota 1 y la nota 2 y asignaremos la media.
 let mensaje;
-let mediaMayor;
+let mediaMayor=0;
 let alumnosMedia = [];
+
 
 function pedirDatosAlumnos() {
   // Pido los numeros de alumnos
@@ -39,47 +40,46 @@ function pedirDatosAlumnos() {
 }
 
 
-function calcularMedias() {
+function calcularMedias() { // for each
 
   for (let i = 0; i < arrayAlumnos.length; i++) {
     // creo una variable temporal para definir mejor la posicion del alumno en el bucle
-    let posicion = arrayAlumnos[i];
-    console.log(posicion);
-
-    let mediaNota1 = posicion.nota1;
-    console.log(posicion.nota1);
-
-    let mediaNota2 = posicion.nota2;
-    let mediaAlumno = (mediaNota1 + mediaNota2) / 2;
-
-    // pusheamos las notas media a un array independiente
-    alumnosMedia.push({ nombre: posicion.nombre, mediaNota1, mediaNota2, mediaAlumno});
+    let mediaAlumno = (arrayAlumnos[i].nota1 + arrayAlumnos[i].nota2) / 2;
+    arrayAlumnos[i].media= mediaAlumno;
   }
-  console.log(alumnosMedia)
+  console.log(arrayAlumnos.media)
 }
-
 
 function filtrarAlumno() {
-
-  let mediaAlta = 0;
-
-  for (let i = 0; i < alumnosMedia.length; i++) {
-    let posicion = alumnosMedia[i];
-    if (posicion.mediaAlumno> mediaAlta) {
-      mediaAlta = posicion.mediaAlumno;
-    } //mediaALta es ahora el mayor número dentro del array alumnosMedia
-  } 
- 
-  // bucle para buscar el nombre del alumno al que equivale su media más alta
-  for (let i = 0; i < alumnosMedia.length; i++) {
-     
-    if (alumnosMedia[i].mediaAlumno === mediaAlta) {
-      mediaMayor = mediaAlta;
-    }
-  }
-
- return mediaMayor;
+  arrayAlumnos.forEach(alumno=>{
+    if(alumno.media>=mediaMayor){
+       mediaMayor= alumno.media;}
+  })
+  return mediaMayor
 }
+
+
+//function filtrarAlumno() {
+
+//   let mediaAlta = 0;
+
+//   for (let i = 0; i < alumnosMedia.length; i++) {
+//     let posicion = alumnosMedia[i];
+//     if (posicion.mediaAlumno> mediaAlta) {
+//       mediaAlta = posicion.mediaAlumno;
+//     } //mediaALta es ahora el mayor número dentro del array alumnosMedia
+//   } 
+ 
+//   // bucle para buscar el nombre del alumno al que equivale su media más alta
+//   for (let i = 0; i < alumnosMedia.length; i++) {
+     
+//     if (alumnosMedia[i].mediaAlumno === mediaAlta) {
+//       mediaMayor = mediaAlta;
+//     }
+//   }
+
+//  return mediaMayor;
+//}
 
 function mostrarMensaje() {
   
