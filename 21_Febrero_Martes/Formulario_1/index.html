@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 
 <body>
@@ -18,26 +19,26 @@
         <label for="genero">Género:</label>
         <select type="text" id='genero' name="genero" placeholder="Género">
 
-        <input type="submit" value="Enviar">
-
-        <ul id='listaErrores'></ul>
-
-
-        <table id="tabla">
-
-            <tr>
-                <th>Título</th>
-                <th>Director</th>
-                <th>Año</th>
-                <th>Género</th>
-            </tr>
-            <tbody id="tbody">
-                <tr><td></td></tr>
-            </tbody>
-
-        </table>
-
+            <input type="submit" value="Enviar">
     </form>
+    
+    <ul id='listaErrores'></ul>
+
+
+    <table id="tabla" class="tablacont">
+
+        <tr class="tablacont">
+            <th>Título</th>
+            <th>Director</th>
+            <th>Año</th>
+            <th>Género</th>
+        </tr>
+        <tbody id="tbody" class="tablacont">
+        </tbody>
+
+    </table>
+
+
 
 
 
