@@ -37,7 +37,7 @@ const validar = () => {
 		objValidar.correo = false
 		errores += '<li>Debes escribir un correo valido</li>'
 	}
-	ç
+	
 	const arrayValidar = Object.values(objValidar)
 	const valida = arrayValidar.findIndex(item => item == false);
 	if (valida === -1) {
