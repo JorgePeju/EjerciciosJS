@@ -7,83 +7,125 @@
 // Tendremos un botón para vaciar la lista completa del localStorage.
 
 
-const lista=document.querySelector("#lista-compra");
-const compra=document.querySelector("#cesta-compra")
-const arrayCompra = [
-    {
-        id: "a1",
-        nombre: "pan"
-    },
-     {
-        id: "a2",
-        nombre: "fruta"
-    },
-    {
-        id: "a3",
-        nombre: "queso"
-    },
-    {
-        id: "a4",
-        nombre: "pescao"
-    }
+document.addEventListener('DOMContentLoaded', () => {
 
-];
+    /* VARIABLES */
+    // arrayOriginal
+    const lista1 = document.querySelector('#lista1')
+    const lista2 = document.querySelector('#lista2')
+    const fragment = document.createDocumentFragment();
 
-const arrayProductos = JSON.parse(localStorage.getItem("arrayCompra")) || [] ;
+    const arrayOriginal = [
+        { id: 'a-1', producto: 'mesa' },
+        { id: 'a-2', producto: 'silla' },
+        { id: 'a-3', producto: 'boli' },
+        { id: 'a-4', producto: 'botella' },
+        { id: 'a-5', producto: 'cuaderno' },
+        { id: 'a-6', producto: 'tele' },
+        { id: 'a-7', producto: 'gafas' },
+        { id: 'a-8', producto: 'micro' },
+    ]
 
-console.log("arrayProductos",arrayProductos)
+    //arrayProductosSelecionados
+    let arrayProductosSelecionados = JSON.parse(localStorage.getItem('productos')) || []
 
+    /* EVENTOS */
+    //evento boton màs  añadir a PRoductos selecionados y añadir al local y pintar lista 2
+    //evento boton menos  sacar a PRoductos selecionados y añadir al local y pintar lista 2
 
-
-// EVENTOS
-
-document.addEventListener("click",(ev)=>{
-
-        if(ev.target.matches(".add")){
-            const id=ev.target.parentElement.id
-            const producto=arrayCompra.find((item)=>item.id==id);
-            arrayProductos.push(producto);
-            addLocal();
-        }else if(ev.target.matches(".del")){
-            const id=ev.target.parentElement.id
-            const producto1=arrayCompra.find((item)=>item.id==id);
-            arrayProductos.pop(producto1);
-            addLocal();
-        } else if(ev.target.matches(".vaciar")){
-            arrayProductos.length = 0;
-            localStorage.removeItem("productos");
+    document.addEventListener('click', ({ target }) => {
+        if (target.classList.contains('add')) {
+            const id = target.parentElement.id;
+            aniadirASeleccionados(id)
+            pintarLista2()
         }
 
-        pintarEnCesta();
-        
-})
+        if (target.matches('.remove')) {
+            const id = target.parentElement.id;
+            sacarDeSeleccionados(id)
+            pintarLista2()
+        }
+    })
 
 
-// FUNCIONES
+    /* FUNCIONES */
 
-const pintarEnLista= ()=>{
-    arrayCompra.forEach(({id,nombre})=>{
-        lista.innerHTML+= `<li id=${id}>${nombre} <button class="add">Añadir</button> </li>`
-    });
-};
+    //pintar lista 1
+    const pintarLista1 = () => {
+        console.log('pintando uno')
+        arrayOriginal.forEach(({ id, producto }) => {
+            const elementoLista = document.createElement('LI');
+            elementoLista.id = id
+            elementoLista.innerHTML = `${producto}
+                                        <button class="add">añadir</button>`
 
-const pintarEnCesta= ()=>{
-    compra.innerHTML="";
+            fragment.append(elementoLista)
+        })
+        lista1.append(fragment)
+    }
 
-    arrayProductos.forEach(({id,nombre})=>{
-        compra.innerHTML+= `<li id=${id}>${nombre} <button class="del">Borrar</button> </li>`
-    });
-    if (arrayProductos.length > 0) {
-        compra.innerHTML += `<div><button class="vaciar">Vaciar Cesta</button></div>`;
-    };
-};
+    //añadir a arrayProductosSelecionados
+    const aniadirASeleccionados = (id) => {
 
-const addLocal= ()=>{
-    localStorage.setItem("productos",JSON.stringify(arrayProductos))
-};
- 
-document.addEventListener("DOMContentLoaded", () => {
+        //recorrer el array y recoger el objeto si existe
+        const productoEncontrado = arrayOriginal.find((item) => { return item.id == id })
+        //pushearlo al arraySeleccionados
+        arrayProductosSelecionados.push(productoEncontrado);
 
-    pintarEnLista();
-  
-});
+        //añadirlo al local
+        setLocal()
+    }
+
+    //sacar del arrayProductosSelecionados
+    const sacarDeSeleccionados = (id) => {
+        console.log('eliminando...',id)
+
+        const indiceELemento=arrayProductosSelecionados.findIndex((item)=>item.id==id)
+        console.log(indiceELemento)
+        if(indiceELemento!=-1){
+             arrayProductosSelecionados.splice(indiceELemento,1)
+            setLocal()
+        }
+       
+    }
+    //añadir al local
+    const setLocal = () => {
+        console.log('seteando Local...', arrayProductosSelecionados)
+        localStorage.setItem('productos', JSON.stringify(arrayProductosSelecionados))
+    }
+
+    //recoger el local
+    const getLocal = () => {
+        return JSON.parse(localStorage.getItem('productos')) || [];
+    }
+
+    //pintarLista 2
+    const pintarLista2 = () => {
+        lista2.innerHTML='';
+        const productos = getLocal()
+
+        productos.forEach(({ id, producto }) => {
+            const elementoLista = document.createElement('LI');
+            elementoLista.id = id
+            elementoLista.innerHTML = `${producto}
+                                        <button class="remove">eliminar</button>`
+            if (lista2.length > 0) {
+               elementoLista.innerHTML += `<div><button class="vaciar">Vaciar Cesta</button></div>`;
+            };
+
+            fragment.append(elementoLista)
+        })
+        lista2.append(fragment)
+
+
+    }
+
+    const init = () => {
+        pintarLista1()
+        pintarLista2()
+    }
+
+    init()
+
+
+})//LOAD
