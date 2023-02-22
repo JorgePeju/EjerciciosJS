@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+</head>
+
+<body>
+
+    <form action="" method="post" id='formulario' name='formulario' enctype="multipart/formdata">
+
+        <input type="text" id='titulo' name="titulo" placeholder="Título">
+        <input type="text" id='director' name="director" placeholder="Director">
+        <input type="text" id='year' name="year" placeholder="Año">
+        <label for="genero">Género:</label>
+        <select type="text" id='genero' name="genero" placeholder="Género">
+
+            <input type="submit" value="Enviar">
+    </form>
+    
+    <ul id='listaErrores'></ul>
+
+
+    <table id="tabla" class="tablacont">
+
+        <tr class="tablacont">
+            <th>Título</th>
+            <th>Director</th>
+            <th>Año</th>
+            <th>Género</th>
+        </tr>
+        <tbody id="tbody" class="tablacont">
+        </tbody>
+
+    </table>
+
+    <script src="separado.js"></script>
+</body>
+
+</html>
