@@ -98,3 +98,5 @@ function namcombineAllArrays(array4) {
 
 
 // 7.Escriba una función llamada sumAndSquare que reciba cualquier número de argumentos, los eleve al cuadrado y devuelva la suma de todos los valores cuadrados.
+
+

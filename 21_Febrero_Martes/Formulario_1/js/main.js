@@ -4,7 +4,6 @@
 // 4. Mostrar todas las películas en una tabla
 
 // primero las variables que vamos a necesitar
-
 document.addEventListener('DOMContentLoaded', () => {
     const formulario = document.querySelector('#formulario');
     const campoTitulo = document.querySelector('#titulo');
@@ -17,9 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Creamos los dos arrays que necesitaremos para guardar las películas y el otro para validar que los datos sean los correctos.
 
     // objValidar parte de false y será luego en los condicionales donde cambiaremos su valor a true
-    
-    
-  
+
 
     const arrayPeliculas = [];
 
@@ -32,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
         genero: false,
     };
 
-
     const pintarGenero = () => {
 
         arrayGeneros.forEach((item) => {
@@ -43,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     };
 
-    
+    pintarGenero();
 
     const pintarTabla = () => {
         tablaResultados.innerHTML = "";
@@ -63,32 +59,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const validasione = () => {
 
-        listaErrores.innerHTML = "";
+        // listaErrores.innerHTML = "";
         let error = "";
         const titulo = campoTitulo.value;
         const director = campoDirector.value;
         const year = campoYear.value;
         const genero = campoGenero.value;
-        const regExpDirector = /[a-zÁ-ÿ]+/gi ;
-        const regExpTitulo = /[a-zÁ-ÿ0-9]/gi ;
-        const regExpYear = /[0-9]{4}/g ;
 
-        
-
-        if (regExpTitulo.test(titulo)) {
+        if (isNaN(titulo) && titulo.trim().length > 0) {
             objValidar.titulo = true
         } else {
             objValidar.titulo = false
             error += '<li>¡Debes escribir un Título válido!</li>'
         }
-        if (regExpDirector.test(director)) {
+
+        if (isNaN(director) && director.trim().length > 0) {
             objValidar.director = true
         } else {
             objValidar.director = false
             error += '<li>¡Debes escribir un Director válido!</li>'
         }
 
-        if (regExpYear.test(year) && year >= 1800 && year <= 9999) {
+        if (!isNaN(year) && year.trim().length > 0 && year >= 1800 && year <= 9999) {
             objValidar.year = true
         } else {
             objValidar.year = false
@@ -119,43 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
     }
-
-
-    // let arrayPeliculasStorage= JSON.parse(localStorage.getItem('tabla')) || [];
-    // const peliculaAdd = () => {
-
-    //     const peliculaAñadida = arrayPeliculas.find((item) => { return item.id == id });
-    //     arrayPeliculasStorage.push(peliculaAñadida);
-
-    //     setLocal()
-    // }
-
-    // const peliculaDel = (id) => {
-
-    //     const indiceELemento=arrayPeliculasStorage.findIndex((item)=>item.id==id)
-    //     console.log(indiceELemento)
-    //     if(indiceELemento!=-1){
-    //         arrayPeliculasStorage.splice(indiceELemento,1)
-    //         setLocal()
-    //     }
-       
-    // }
-
-    // const setLocal = () => {
-    //     localStorage.setItem("tabla", JSON.stringify(arrayPeliculasStorage))
-    // }
-
-    // const getLocal = () => {
-    //     return JSON.parse(localStorage.getItem("tabla")) || [];
-    // }
-
-    const init = ()=> {
-
-        pintarGenero();
-
-    }
-
-
-    init();
-
 })
+
+
+for (let i = 0; i < array.length; i++) {
+    if (array[i] === "needle") {
+
+      return "found the needle at position " + i;
+    }
+  }
