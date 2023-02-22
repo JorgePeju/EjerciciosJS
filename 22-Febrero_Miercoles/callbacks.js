@@ -57,11 +57,16 @@ getAlumnos(id, (error, alumno) => {
                 console.log(error)
             } else {
                 getBeca(id, (error, beca) => {
-                    if (beca == false) {
-                        console.log(`${alumno} tiene una nota de ${nota} y no tiene beca`)
-                    } else {
-                        console.log(`${alumno} tiene una nota de ${nota} y tiene beca`)
+                    if (error) {
+                        console.log(error)
+                    } else { 
+                        if (beca == false) {
+                            console.log(`${alumno} tiene una nota de ${nota} y no tiene beca`)
+                        } else {
+                            console.log(`${alumno} tiene una nota de ${nota} y tiene beca`)
+                        }  
                     }
+                    
 
                 })
             }
