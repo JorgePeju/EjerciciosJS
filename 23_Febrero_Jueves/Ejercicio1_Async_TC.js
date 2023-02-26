@@ -33,7 +33,7 @@ const getNotas = async (id, nombre) => {
     if (!nota) throw (` ${nombre} no tiene nota`)
     else return (nota)
 
-}cd
+}
 
 const getBeca = async (id, nombre, nota)=> {
     let beca = arrayBeca.find((item) => item.id == id)
