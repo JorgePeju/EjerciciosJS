@@ -17,7 +17,7 @@ const urlBase = "./imagenes";
 const pintarCard = () => {
 
     const cardFotos = document.querySelector("#imagenes");
-    cardFotos.innerHTML = ""
+    cardFotos.innerHTML = "";
 
     const arrayCards = [
         ["viajes-1.jpg", "Viaje Uno"],
