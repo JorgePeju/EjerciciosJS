@@ -30,6 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
             campoGenero.append(opcion);
         });
     };
+    
     pintarGenero();
     const pintarTabla = () => {
         tablaResultados.innerHTML = "";
